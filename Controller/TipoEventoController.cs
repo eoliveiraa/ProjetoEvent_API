@@ -10,7 +10,7 @@ namespace EventPlus_.Controller
     [Produces("application/json")]
     public class TipoEventoController : ControllerBase
     {
-        private readonly ITipoEventoRepository _tipoEventoRepository;
+        private ITipoEventoRepository _tipoEventoRepository { get; set; }
 
         public TipoEventoController(ITipoEventoRepository tipoEventoRepository)
         {
@@ -44,12 +44,12 @@ namespace EventPlus_.Controller
             try
             {
                 _tipoEventoRepository.Cadastrar(novoTipoEvento);
-                return Created();
+                return StatusCode(201, novoTipoEvento);
                 
             }
-            catch (Exception error)
+            catch (Exception e)
             {
-                return BadRequest(error.Message);
+                return BadRequest(e.Message);
             }
         }
 
@@ -62,11 +62,11 @@ namespace EventPlus_.Controller
             try
             {
                 _tipoEventoRepository.Atualizar(id, tipoEvento);
-                return NoContent();
+                return StatusCode(204, tipoEvento);
             }
-            catch (Exception error)
+            catch (Exception e)
             {
-                return BadRequest(error.Message);
+                return BadRequest(e.Message);
             }
         }
 
@@ -91,7 +91,7 @@ namespace EventPlus_.Controller
         /// Endpoint para buscar tipo do evento por Id
         /// </summary>
         [HttpGet("BuscarPorId/{id}")]
-        public IActionResult Get(Guid id)
+        public IActionResult GetById(Guid id)
         {
             try
             {

@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EventPlus_.Domains
 {
-    [Table("Eventos")]
-    public class Eventos
+    [Table("Evento")]
+    public class Evento
     {
         [Key]
         public Guid EventosID { get; set; }

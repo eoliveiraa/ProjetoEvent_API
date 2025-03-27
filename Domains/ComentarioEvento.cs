@@ -30,7 +30,7 @@ namespace EventPlus_.Domains
         public Guid EventosID { get; set; }
 
         [ForeignKey("EventosID")]
-        public Eventos? Eventos { get; set; }
+        public Evento? Eventos { get; set; }
 
     }
 }

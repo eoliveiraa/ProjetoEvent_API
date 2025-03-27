@@ -37,23 +37,7 @@ namespace EventPlus_.Controller
         }
 
 
-        /// <summary>
-        /// Endpoint para deletar a presença
-        /// </summary>
-        [HttpDelete("{id}")]
-        public IActionResult Delete(Guid id)
-        {
-            try
-            {
-                _presencaRepository.Deletar(id);
-                return NoContent();
-            }
-            catch (Exception error)
-            {
-                return BadRequest(error.Message);
-            }
-        }
-
+      
         /// <summary>
         /// Endpoint para buscar por Id a presença
         /// </summary>
@@ -80,11 +64,11 @@ namespace EventPlus_.Controller
             try
             {
                 _presencaRepository.Atualizar(id, presenca);
-                return NoContent();
+                return StatusCode(204, presenca);
             }
-            catch (Exception error)
+            catch (Exception e)
             {
-                return BadRequest(error.Message);
+                return BadRequest(e.Message);
             }
         }
 

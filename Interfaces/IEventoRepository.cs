@@ -4,16 +4,16 @@ namespace EventPlus_.Interfaces
 {
     public interface IEventoRepository
     {
-        List<Eventos> Listar();
+        List<Evento> Listar();
 
-        void Cadastrar(Eventos evento);
+        void Cadastrar(Evento evento);
 
-        void Atualizar(Guid id, Eventos evento);
+        void Atualizar(Guid id, Evento evento);
 
         void Deletar(Guid id);
 
-        List<Eventos> ListarPorId(Guid id);
+        List<Evento> ListarPorId(Guid id);
 
-        List<Eventos> ListarProximosEventos(Guid id);
+        List<Evento> ListarProximosEventos(Guid id);
     }
 }

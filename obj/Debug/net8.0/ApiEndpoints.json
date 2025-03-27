@@ -72,7 +72,7 @@
     "Parameters": [
       {
         "Name": "eventoRepository",
-        "Type": "EventPlus_.Domains.Eventos",
+        "Type": "EventPlus_.Domains.Evento",
         "IsRequired": true
       }
     ],
@@ -119,7 +119,7 @@
       },
       {
         "Name": "novoEvento",
-        "Type": "EventPlus_.Domains.Eventos",
+        "Type": "EventPlus_.Domains.Evento",
         "IsRequired": true
       }
     ],
@@ -158,6 +158,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EventPlus_.Controller.LoginController",
+    "Method": "Login",
+    "RelativePath": "api/Login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginDTO",
+        "Type": "EventPlus_.NovaPasta.loginDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EventPlus_.Controller.PresencaController",
     "Method": "Post",
     "RelativePath": "api/Presenca",
@@ -181,22 +197,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "EventPlus_.Controller.PresencaController",
-    "Method": "Delete",
-    "RelativePath": "api/Presenca/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Guid",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   },
   {
@@ -317,7 +317,7 @@
   },
   {
     "ContainingType": "EventPlus_.Controller.TipoEventoController",
-    "Method": "Get",
+    "Method": "GetById",
     "RelativePath": "api/TipoEvento/BuscarPorId/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -429,7 +429,7 @@
   {
     "ContainingType": "EventPlus_.Controller.UsuarioController",
     "Method": "Get",
-    "RelativePath": "api/Usuario/BuscarPorEmailESenha/{email}, {senha}",
+    "RelativePath": "api/Usuario/BuscarPorEmailESenha",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -437,12 +437,12 @@
       {
         "Name": "email",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       },
       {
         "Name": "senha",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

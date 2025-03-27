@@ -23,7 +23,7 @@ namespace EventPlus_.Controller
         /// Endpoint para cadastrar novo evento
         /// </summary>
         [HttpPost]
-        public IActionResult Post(Eventos eventoRepository)
+        public IActionResult Post(Evento eventoRepository)
         {
             try
             {
@@ -36,6 +36,10 @@ namespace EventPlus_.Controller
             }
         }
 
+
+        /// <summary>
+        /// Endpoint para deletar evento
+        /// </summary>
         [HttpDelete("{id}")]
         public IActionResult Delete(Guid id)
         {
@@ -50,12 +54,16 @@ namespace EventPlus_.Controller
             }
         }
 
+
+        /// <summary>
+        /// Endpoint para listar evento
+        /// </summary>
         [HttpGet]
         public IActionResult Get()
         {
             try
             {
-                List<Eventos> ListarEventos = _eventoRepository.Listar();
+                List<Evento> ListarEventos = _eventoRepository.Listar();
                 return Ok(ListarEventos);
             }
             catch (Exception error)
@@ -64,12 +72,16 @@ namespace EventPlus_.Controller
             }
         }
 
+
+        /// <summary>
+        /// Endpoint para listar por id
+        /// </summary>
         [HttpGet("ListarPorId/{id}")]
         public IActionResult ListarPorId(Guid id)
         {
             try
             {
-                List<Eventos> listaEventos = _eventoRepository.ListarPorId(id);
+                List<Evento> listaEventos = _eventoRepository.ListarPorId(id);
                 return Ok(listaEventos);
             }
             catch (Exception error)
@@ -78,12 +90,16 @@ namespace EventPlus_.Controller
             }
         }
 
+
+        /// <summary>
+        /// listar proximo evento
+        /// </summary>
         [HttpGet("ListarProximosEventos/{id}")]
         public IActionResult Get(Guid id)
         {
             try
             {
-                List<Eventos> ListarEventos = _eventoRepository.ListarProximosEventos(id);
+                List<Evento> ListarEventos = _eventoRepository.ListarProximosEventos(id);
                 return Ok(ListarEventos);
             }
             catch (Exception error)
@@ -92,9 +108,11 @@ namespace EventPlus_.Controller
             }
         }
 
+        /// <summary>
+        /// Endpoint para atualizar evento
+        /// </summary>
         [HttpPut("{id}")]
-
-        public IActionResult Put(Guid id, Eventos novoEvento)
+        public IActionResult Put(Guid id, Evento novoEvento)
         {
             try
             {

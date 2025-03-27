@@ -13,11 +13,11 @@ namespace EventPlus_.Repositories
             _context = context;
         }
 
-        public void Atualizar(Guid id, Eventos evento)
+        public void Atualizar(Guid id, Evento evento)
         {
             try
             {
-                Eventos eventoBuscado = _context.Eventos.Find(id)!;
+                Evento eventoBuscado = _context.Eventos.Find(id)!;
 
                 if (eventoBuscado != null)
                 {
@@ -31,11 +31,11 @@ namespace EventPlus_.Repositories
             }
         }
 
-        public Eventos BuscarPorId(Guid id)
+        public Evento BuscarPorId(Guid id)
         {
             try
             {
-                Eventos eventoBuscado = _context.Eventos.Find(id)!;
+                Evento eventoBuscado = _context.Eventos.Find(id)!;
                 return eventoBuscado;
 
             }
@@ -45,7 +45,7 @@ namespace EventPlus_.Repositories
             }
         }
 
-        public void Cadastrar(Eventos novoEvento)
+        public void Cadastrar(Evento novoEvento)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace EventPlus_.Repositories
         {
             try
             {
-                Eventos eventoBuscado = _context.Eventos.Find(id)!;
+                Evento eventoBuscado = _context.Eventos.Find(id)!;
 
                 if(eventoBuscado != null)
                 {
@@ -79,11 +79,11 @@ namespace EventPlus_.Repositories
             }
         }
 
-        public List<Eventos> Listar()
+        public List<Evento> Listar()
         {
             try
             {
-                List<Eventos> listaEvento = _context.Eventos.ToList();
+                List<Evento> listaEvento = _context.Eventos.ToList();
                 return listaEvento;
             }
             catch (Exception)
@@ -92,11 +92,11 @@ namespace EventPlus_.Repositories
             }
         }
 
-        public List<Eventos> ListarPorId(Guid id)
+        public List<Evento> ListarPorId(Guid id)
         {
             try
             {
-                List<Eventos> listaEvento = _context.Eventos.Where(p => p.EventosID == id).ToList();
+                List<Evento> listaEvento = _context.Eventos.Where(p => p.EventosID == id).ToList();
                 return listaEvento;
             }
             catch (Exception)
@@ -105,11 +105,11 @@ namespace EventPlus_.Repositories
             }
         }
 
-        public List<Eventos> ListarProximosEventos(Guid id)
+        public List<Evento> ListarProximosEventos(Guid id)
         {
             try
             {
-                List<Eventos> listarEventosProximos = _context.Eventos.Where(e => e.DataEvento > DateTime.Now).OrderBy(e => e.DataEvento).ToList();
+                List<Evento> listarEventosProximos = _context.Eventos.Where(e => e.DataEvento > DateTime.Now).OrderBy(e => e.DataEvento).ToList();
                 return listarEventosProximos;
             }
             catch (Exception)
